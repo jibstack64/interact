@@ -147,4 +147,4 @@ elif choice == "h":
                 break
 
 # log disconnection
-log(f"connection terminated.", Mode.Error)
+log(f"\nconnection terminated.", Mode.Error)
