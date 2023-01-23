@@ -1,0 +1,12 @@
+
+[encryption]
+key = "lCqejQP5TtTk0XmfV6YDmv0T2WY9uATDJBwMDpOLR28="
+
+[server]
+ngrok = true
+host = "127.0.0.1"
+port = 1234
+
+[global]
+exit_command = "/exit"
+buffer = 2048
