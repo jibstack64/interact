@@ -121,14 +121,14 @@ elif choice == "h":
             tunnel = ngrok.connect(PORT, "tcp").public_url
         except:
             log("\nfailed to create ngrok tunnel.", Mode.Fatal)
-        log(f"\nngrok tunnel '{tunnel}' created.\n", Mode.Success)
+        log(f"\nngrok tunnel '{tunnel}' created.", Mode.Success)
 
     # initiate
     sock.bind((HOST, PORT))
     sock.listen(1)
     # wait for client
     conn, addr = sock.accept()
-    log(f"client of IP '{addr[0]}' has connected.", Mode.Wrap, colour=Colour.LIGHTCYAN_EX)
+    log(f"\nclient of IP '{addr[0]}' has connected.", Mode.Wrap, colour=Colour.LIGHTCYAN_EX)
     log(f"type '{EXIT}' to quit.", Mode.Wrap, colour=Colour.YELLOW)
     while True:
         d = conn.recv(BUFFER)
