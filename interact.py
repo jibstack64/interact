@@ -2,10 +2,6 @@
 import subprocess
 import enum
 import sys
-if sys.platform == "win32":
-    startupinfo = subprocess.STARTUPINFO
-else:
-    startupinfo = None
 subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False, startupinfo=startupinfo).decode()
 
 # import required libraries
