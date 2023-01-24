@@ -53,7 +53,7 @@ if not os.path.isfile(CONFIG_PATH):
     log(f"configuration file '{CONFIG_PATH}' does not exist.", Mode.Fatal)
 else:
     log(f"loaded config '{CONFIG_PATH}'.\n", Mode.Success)
-with open("config.toml", "r") as f:
+with open(CONFIG_PATH, "r") as f:
     raw = toml.load(f)
     try:
         KEY = raw["encryption"]["key"]
