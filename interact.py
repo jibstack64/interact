@@ -10,7 +10,7 @@ if sys.platform == "win32":
         startupinfo = None
 else:
     startupinfo = None
-subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False).decode()
+subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False, startupinfo=startupinfo).decode()
 
 # import required libraries
 from colorama import Fore as Colour
