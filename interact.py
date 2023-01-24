@@ -48,10 +48,16 @@ def fancy(text: str, colour: str | None) -> str:
 ### CONFIG ###
 
 CONFIG_PATH = "config.toml"
+# custom config
+args = sys.argv[1:]
+if len(args) > 0:
+    CONFIG_PATH = args[0]
 
 # load config
 if not os.path.isfile(CONFIG_PATH):
     log(f"configuration file '{CONFIG_PATH}' does not exist.", Mode.Fatal)
+else:
+    log(f"loaded config '{CONFIG_PATH}'.\n", Mode.Success)
 with open("config.toml", "r") as f:
     raw = toml.load(f)
     try:
