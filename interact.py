@@ -2,7 +2,7 @@
 import subprocess
 import enum
 import sys
-subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False, startupinfo=startupinfo).decode()
+subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False).decode()
 
 # import required libraries
 from colorama import Fore as Colour
