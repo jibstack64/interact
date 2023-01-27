@@ -53,8 +53,32 @@ def fancy(text: str, colour: str | None) -> str:
 CONFIG_PATH = "config.toml"
 # custom config
 args = sys.argv[1:]
-if len(args) > 0:
-    CONFIG_PATH = args[0]
+for a in args:
+    if a == "--no-colour":
+        continue
+    else:
+        CONFIG_PATH = a
+        break
+if "--no-colour" in args:
+    class C:
+        BLACK           = ""
+        RED             = ""
+        GREEN           = ""
+        YELLOW          = ""
+        BLUE            = ""
+        MAGENTA         = ""
+        CYAN            = ""
+        WHITE           = ""
+        RESET           = ""
+        LIGHTBLACK_EX   = ""
+        LIGHTRED_EX     = ""
+        LIGHTGREEN_EX   = ""
+        LIGHTYELLOW_EX  = ""
+        LIGHTBLUE_EX    = ""
+        LIGHTMAGENTA_EX = ""
+        LIGHTCYAN_EX    = ""
+        LIGHTWHITE_EX   = ""
+    Colour = C()
 
 # load config
 if not os.path.isfile(CONFIG_PATH):
