@@ -16,9 +16,13 @@ subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", 
 from colorama import Fore as Colour
 import cryptography.fernet as fernet
 import pyngrok.ngrok as ngrok
+import colorama
 import socket
 import toml
 import os
+
+# for windows systems
+colorama.init(convert=True)
 
 ### LOGGING ###
 
