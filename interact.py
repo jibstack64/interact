@@ -22,7 +22,8 @@ import toml
 import os
 
 # for windows systems
-colorama.init(convert=True)
+if os.name != "posix":
+    colorama.init(convert=True)
 
 ### LOGGING ###
 
