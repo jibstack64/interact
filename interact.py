@@ -10,12 +10,10 @@ if sys.platform == "win32":
         startupinfo = None
 else:
     startupinfo = None
-subprocess.check_output(["pip3", "install", "cryptography", "colorama", "toml", "pyngrok"], shell=False, startupinfo=startupinfo).decode()
 
 # import required libraries
 from colorama import Fore as Colour
 import cryptography.fernet as fernet
-import pyngrok.ngrok as ngrok
 import colorama
 import socket
 import toml
@@ -94,7 +92,6 @@ with open(CONFIG_PATH, "r") as f:
     raw = toml.load(f)
     try:
         KEY = raw["encryption"]["key"]
-        NGROK = raw["server"]["ngrok"]
         HOST = raw["server"]["host"]
         PORT = raw["server"]["port"]
         EXIT = raw["global"]["exit_command"]
@@ -154,12 +151,6 @@ if choice == "c":
         log(f"\n[{HOST}]> {cr}\n", Mode.Warn)
 # server
 elif choice == "h":
-    if NGROK:
-        try:
-            tunnel = ngrok.connect(PORT, "tcp").public_url
-        except:
-            log("\nfailed to create ngrok tunnel.", Mode.Fatal)
-        log(f"\nngrok tunnel '{tunnel}' created.", Mode.Success)
 
     # initiate
     sock.bind((HOST, PORT))
